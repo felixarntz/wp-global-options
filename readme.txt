@@ -1,6 +1,6 @@
-=== WP Network Roles ===
+=== WP Global Options ===
 
-Plugin Name:       WP Network Roles
+Plugin Name:       WP Global Options
 Plugin URI:        https://github.com/felixarntz/wp-global-options
 Author:            Felix Arntz
 Author URI:        https://leaves-and-love.net
@@ -13,7 +13,7 @@ License:           GNU General Public License v3
 License URI:       http://www.gnu.org/licenses/gpl-3.0.html
 Tags:              network roles, network, multisite, multinetwork
 
-Implements network-wide user roles in WordPress.
+Implements a global option storage in WordPress.
 
 == Description ==
 

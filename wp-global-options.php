@@ -8,7 +8,7 @@
  * @wordpress-plugin
  * Plugin Name: WP Global Options
  * Plugin URI:  https://github.com/felixarntz/wp-global-options
- * Description: Implements network-wide user roles in WordPress.
+ * Description: Implements a global option storage in WordPress.
  * Version:     1.0.0
  * Author:      Felix Arntz
  * Author URI:  https://leaves-and-love.net
