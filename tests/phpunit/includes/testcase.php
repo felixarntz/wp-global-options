@@ -1,9 +1,9 @@
 <?php
 /**
- * @package WPNetworkRoles
+ * @package WPGlobalOptions
  * @subpackage Tests
  */
 
-class WPNR_UnitTestCase extends WP_UnitTestCase {
+class WPGO_UnitTestCase extends WP_UnitTestCase {
 
 }
