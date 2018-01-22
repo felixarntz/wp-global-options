@@ -46,9 +46,10 @@ function _go_maybe_install_db_table() {
 		return;
 	}
 
-	$installed = get_global_option( 'installed' );
+	// Use wp_load_global_alloptions() here because it suppresses DB errors.
+	$alloptions = wp_load_global_alloptions();
 
-	if ( ! $installed ) {
+	if ( empty( $alloptions['installed'] ) ) {
 		$installed = (bool) $wpdb->get_var( $wpdb->prepare( "SHOW TABLES LIKE %s", $wpdb->esc_like( $wpdb->global_options ) ) );
 
 		if ( ! $installed ) {
