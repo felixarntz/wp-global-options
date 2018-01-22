@@ -2,7 +2,7 @@
 /**
  * Plugin initialization file
  *
- * @package WPNetworkRoles
+ * @package WPGlobalOptions
  * @since 1.0.0
  *
  * @wordpress-plugin

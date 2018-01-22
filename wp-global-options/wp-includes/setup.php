@@ -2,7 +2,7 @@
 /**
  * Sets up the global options database table.
  *
- * @package WPNetworkRoles
+ * @package WPGlobalOptions
  * @since 1.0.0
  */
 
