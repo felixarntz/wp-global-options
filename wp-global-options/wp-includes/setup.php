@@ -25,7 +25,7 @@ function _go_get_db_table_schema() {
   option_id bigint(20) unsigned NOT NULL auto_increment,
   option_name varchar(191) NOT NULL default '',
   option_value longtext NOT NULL,
-  autoload varchar(20) NOT NULL default 'yes',
+  autoload varchar(20) NOT NULL default 'no',
   PRIMARY KEY  (option_id),
   UNIQUE KEY option_name (option_name)
 ) $charset_collate;\n";
