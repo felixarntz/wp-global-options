@@ -43,6 +43,12 @@ function go_init() {
 	require_once GO_PATH . 'wp-global-options/wp-includes/option.php';
 	require_once GO_PATH . 'wp-global-options/wp-includes/setup.php';
 
+	if ( defined( 'WP_CLI' ) && WP_CLI ) {
+		require_once GO_PATH . 'wp-global-options/wp-includes/class-wp-cli-global-option-command.php';
+
+		WP_CLI::add_command( 'global-option', 'WP_CLI_Global_Option_Command' );
+	}
+
 	go_register_table();
 
 	if ( function_exists( 'wp_cache_add_global_groups' ) ) {
