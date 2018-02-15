@@ -25,7 +25,7 @@
  * @since 1.0.0
  */
 function go_load_textdomain() {
-	load_plugin_textdomain( 'wp-global-options' );
+	load_plugin_textdomain( 'wp-global-options', false, basename( dirname( __FILE__ ) ) . '/languages' );
 }
 
 /**
