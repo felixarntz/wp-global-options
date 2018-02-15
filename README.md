@@ -14,6 +14,7 @@ Implements a global option storage in WordPress.
 * introduces a CRUD API for global options, including sanitization and validation
 * introduces a CRUD API for global transients
 * introduces an API for registering/unregistering global settings
+* includes a `wp global-options` command for WP-CLI
 
 ## How to install
 
