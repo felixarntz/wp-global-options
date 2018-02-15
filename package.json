@@ -1,6 +1,6 @@
 {
   "name": "wp-global-options",
-  "version": "1.0.0",
+  "version": "1.0.0-beta.1",
   "description": "Implements a global option storage in WordPress.",
   "keywords": [
     "wordpress",

@@ -1,7 +1,7 @@
 {
   "name": "felixarntz/wp-global-options",
   "description": "Implements a global option storage in WordPress.",
-  "version": "1.0.0",
+  "version": "1.0.0-beta.1",
   "license": "GPL-2.0-or-later",
   "type": "wordpress-plugin",
   "keywords": [
