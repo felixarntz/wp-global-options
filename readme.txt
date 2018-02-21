@@ -17,7 +17,13 @@ Implements a global option storage in WordPress.
 
 == Description ==
 
-TODO
+= Features =
+
+* introduces a database table `global_options`
+* introduces a CRUD API for global options, including sanitization and validation
+* introduces a CRUD API for global transients
+* introduces an API for registering/unregistering global settings
+* includes a `wp global-options` command for WP-CLI
 
 == Installation ==
 
@@ -25,8 +31,6 @@ TODO
 2. Activate the plugin through the 'Plugins' menu in WordPress.
 
 == Frequently Asked Questions ==
-
-TODO
 
 = Where should I submit my support request? =
 
