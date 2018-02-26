@@ -1,6 +1,6 @@
 <?php
 /**
- * @package WPNetworkRoles
+ * @package WPGlobalOptions
  * @subpackage Tests
  */
 
