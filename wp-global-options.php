@@ -37,9 +37,6 @@ function go_load_textdomain() {
  * @since 1.0.0
  */
 function go_init() {
-	define( 'GO_PATH', plugin_dir_path( __FILE__ ) );
-	define( 'GO_URL', plugin_dir_url( __FILE__ ) );
-
 	require_once GO_PATH . 'wp-global-options/wp-includes/formatting.php';
 	require_once GO_PATH . 'wp-global-options/wp-includes/option.php';
 	require_once GO_PATH . 'wp-global-options/wp-includes/setup.php';
@@ -155,14 +152,34 @@ function go_activate_on_new_wpmn_network_add_hook() {
 	add_filter( 'pre_update_site_option_active_sitewide_plugins', 'go_activate_on_update_request' );
 }
 
-add_action( 'plugins_loaded', 'go_load_textdomain', 1 );
+/**
+ * Hooks in plugin initialization functionality.
+ *
+ * @since 1.0.0
+ */
+function go_add_hooks() {
+	$file          = wp_normalize_path( __FILE__ );
+	$mu_plugin_dir = wp_normalize_path( WPMU_PLUGIN_DIR );
+	$is_mu_plugin  = (bool) preg_match( '#^' . preg_quote( $mu_plugin_dir, '#' ) . '/#', $file );
+	$plugin_hook   = $is_mu_plugin ? 'muplugins_loaded' : 'plugins_loaded';
 
-if ( version_compare( $GLOBALS['wp_version'], '4.9', '<' ) ) {
-	add_action( 'admin_notices', 'go_requirements_notice' );
-	add_action( 'network_admin_notices', 'go_requirements_notice' );
-} else {
-	add_action( 'plugins_loaded', 'go_init' );
+	add_action( $plugin_hook, 'go_load_textdomain', 1 );
 
-	add_filter( 'populate_network_meta', 'go_activate_on_new_network', 10, 1 );
-	add_action( 'add_network', 'go_activate_on_new_wpmn_network_add_hook', 10, 0 );
+	if ( version_compare( $GLOBALS['wp_version'], '4.9', '<' ) ) {
+		add_action( 'admin_notices', 'go_requirements_notice' );
+		add_action( 'network_admin_notices', 'go_requirements_notice' );
+		return;
+	}
+
+	define( 'GO_PATH', plugin_dir_path( __FILE__ ) );
+	define( 'GO_URL', plugin_dir_url( __FILE__ ) );
+
+	add_action( $plugin_hook, 'go_init' );
+
+	if ( ! $is_mu_plugin ) {
+		add_filter( 'populate_network_meta', 'go_activate_on_new_network', 10, 1 );
+		add_action( 'add_network', 'go_activate_on_new_wpmn_network_add_hook', 10, 0 );
+	}
 }
+
+go_add_hooks();
